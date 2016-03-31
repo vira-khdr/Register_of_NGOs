@@ -283,7 +283,7 @@ CREATE TABLE IF NOT EXISTS `Register_DB`.`Arbitrages` (
   `address_id` INT NOT NULL,
   `cert_id` INT NOT NULL,
   `doc_id` INT NOT NULL,
-  `founder_id` INT NOT NULL,
+  `founder_id` VARCHAR(145) NOT NULL,
   `registrator_name` VARCHAR(200) NULL,
   `date_start` DATE NOT NULL,
   `date_stop` DATE NULL,
@@ -296,12 +296,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Register_DB`.`Arbitrage_Loans` (
   `id` INT NOT NULL,
-  `loans_name` VARCHAR(145) NOT NULL,
-  `loans_education` VARCHAR(145) NOT NULL,
-  `loans_specialty` VARCHAR(145) NOT NULL,
-  `loans_last_work` VARCHAR(145) NULL,
-  `loans_experience` VARCHAR(145) NULL,
-  `loans_experience_specialty` VARCHAR(145) NULL,
+  `name` VARCHAR(145) NOT NULL,
+  `education` VARCHAR(145) NOT NULL,
+  `specialty` VARCHAR(145) NOT NULL,
+  `last_work` VARCHAR(145) NULL,
+  `experience` VARCHAR(145) NULL,
+  `experience_specialty` VARCHAR(145) NULL,
   `arbitrage_id` INT NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
