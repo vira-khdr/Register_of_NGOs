@@ -28,9 +28,17 @@ insert into certificates(cert_num, cert_date) values(3215464813, '2015-03-02');
 insert into certificates(cert_num, cert_date) values(3189458625, '2006-10-08');
 insert into certificates(cert_num, cert_date) values(3164978564, '2009-12-13');
 
-insert into arbitrages(id, oper_type, register_number, name_full, address_id, cert_id, doc_id, founder_id, registrator_name, date_start) 
-	values(1, 'registration', 4785123631641254, 'Syd Kyiv', 1, 1, 5, '...', '...', '2008-09-15');
-insert into arbitrages(id, oper_type, register_number, name_full, address_id, cert_id, doc_id, founder_id, registrator_name, date_start) 
-	values(2, 'registration', 1452697584631597, 'Syd Kharkiv', 3, 2, 4, '...', '...', '2013-09-30');
-insert into arbitrages(id, oper_type, register_number, name_full, address_id, cert_id, doc_id, founder_id, registrator_name, date_start) 
-	values(3, 'registration', 3154264895482854, 'Syd Ternopil', 9, 3, 4, '...', '...', '2014-04-01');
+INSERT INTO `register_db`.`commerce_chambers`(`id`,`type`,`oper_type`, `register_number`, `name_full`,`location`,`goal`,`registrator_name`,`cert_id`,`doc_id`,`address_id`) 
+VALUES (
+1,
+'trade-palate',
+'registration', 
+'18294503032', 
+'Commerce Chamber #1', 
+'Kiev-City', 
+'open trading with european partners', 
+'registrator#1', 
+4, 
+18, 
+7);
+
