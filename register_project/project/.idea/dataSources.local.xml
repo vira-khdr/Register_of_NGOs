@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Django default2" uuid="20a35277-8832-46d9-bf14-809489b1864d">
+      <user-name>root</user-name>
+      <user-password>df9bdf9bdf9bdf9b</user-password>
+      <schema-pattern>kpz_final.*</schema-pattern>
+      <default-schemas>kpz_final.*</default-schemas>
+    </data-source>
+  </component>
+</project>

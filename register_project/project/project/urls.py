@@ -13,9 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, patterns, include
 from django.contrib import admin
+import register.views
+admin.autodiscover()
 
-urlpatterns = [
+urlpatterns = (
+    url(r'^register_commerce_chamberce/add_commerce/$', 'register.views.add_commerse_chambers'),
+    url(r'^register_commerce_chamberce/$', 'register.views.page_commerse_chambers'),
+
+    url('', 'register.views.index'),
     url(r'^admin/', admin.site.urls),
-]
+)
