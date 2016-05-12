@@ -31,6 +31,10 @@ class Leader(models.Model):
     PIB = models.CharField(max_length=200)
     post = models.CharField(max_length=200)
 
+class Founder(models.Model):
+    PIB = models.CharField(max_length=200)
+    adress = models.ForeignKey(Address)
+
 class Commerce_Chambers(models.Model):
     ch_type = models.CharField(max_length=50)
     oper_type = models.CharField(max_length=50)
@@ -56,3 +60,23 @@ class Party(models.Model):
     address = models.ForeignKey(Address)
     leader = models.ForeignKey(Leader)
     limit = models.ForeignKey(Limit, blank=True, null=True)
+
+ class NGO(models.Model):
+ 	ngo_type = models.CharField(max_length=50)
+ 	ngo_status = models.CharField(max_length=50)
+ 	oper_type = models.CharField(max_length=50)
+ 	legal_form = models.CharField(max_length=50)
+ 	limit_id = models.ForeignKey(Limit, blank=True, null=True)
+ 	cert = models.ForeignKey(Certificate)
+    doc = models.ForeignKey(Document)
+    address = models.ForeignKey(Address)
+    founder = models.ForeignKey(Founder)
+    date_stop = models.DateField(blank=True, null=True)
+    name_full = models.CharField(max_length=200)
+    name_short = models.CharField(max_length=100, blank=True, null=True)
+    goal = models.CharField(max_length=200)
+    direction = models.CharField(max_length=200, blank=True, null=True)
+    registrator_name = models.CharField(max_length=200)
+    filial_type = models.CharField(max_length=50, blank=True, null=True)
+    gov_address = models.CharField(max_length=200, blank=True, null=True)
+    gov_phone = models.CharField(max_length=50, blank=True, null=True)
