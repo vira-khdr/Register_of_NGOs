@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+        <div class="row">
+            <form class="form-horizontal" role="form" name="ngo_form">
+                <div class="form-group">
+                    <legend>Заява про внесення до Єдиного реєстру громадських формувань відомостей про
+громадські організації та осередки громадських організацій</legend>
+                </div>
+
+                <!-- Тип громадської організації -->
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label">
+                            <p align="left">Тип громадської організації:</p>
+                            <label class="radio-inline">
+                                <input type="radio" name="ch_type" value="Gromads'ka organisatcia" checked>
+                                <strong>Громадська організація</strong>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="ch_type" value="Oseredok">
+                                <strong>Осередок</strong>
+                            </label>
+                        </label>
+                    </div>
+                </div>
+                <hr>
+                <!-- Статус -->
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label">
+                            <p align="left">Статус:</p>
+                            <label class="radio-inline">
+                                <input type="radio" name="status_type" value="Vseukainskij" checked>
+                                <strong>Всеукраїнський</strong>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="status_type" value="Mijnarodnij">
+                                <strong>Міжнародний</strong>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="status_type" value="Mistcevij" checked>
+                                <strong>Місцевий</strong>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="status_type" value="Oblastnij">
+                                <strong>Обласний</strong>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="status_type" value="Regionalnij" checked>
+                                <strong>Регіональний</strong>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="status_type" value="Respublicanskij">
+                                <strong>Республіканський</strong>
+                            </label>
+                        </label>
+                    </div>
+                </div>
+                <hr>
+                <!-- Форма легалізації -->
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label">
+                            <p align="left">Форма легалізації:</p>
+                            <label class="radio-inline">
+                                <input type="radio" name="leg_type" value="Registration" checked>
+                                <strong>Рєстрація</strong><br>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="leg_type" value="Change Registration">
+                                <strong>Повідомлення про заснування</strong>
+                            </label>
+                        </label>
+                    </div>
+                </div>
+                <hr>
+                <!-- Тип операції -->
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label">
+                            <p align="left">Тип операції:</p>
+                            <label class="radio-inline">
+                                <input type="radio" name="oper_type" value="Registration" checked>
+                                <strong>Рєстрація(легалізація)</strong><br>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="oper_type" value="Change Registration">
+                                <strong>Реєстрація зміни</strong>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="oper_type" value="Correct Mistakes">
+                                <strong>Виправлення помилок</strong>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="oper_type" value="Issue cert copy">
+                                <strong>Видача дубліката</strong>
+                            </label>
+                        </label>
+                    </div>
+                </div>
+                <hr>
+
+                <!-- Документ -->
+                <div class="form-group">
+                    <p><h4>
+                        Відомості про документ, на підставі якого здійснюється реєстрація, припинення діяльності,
+                        вноситься зміна до запису або видається дублікат свідоцтва про реєстрацію
+                    </h4></p>
+	                <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label" for="doc_name">Назва документа:</label>
+                        <input type="text" id="doc_name" name="doc_name" placeholder="">
+	                </div>
+
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label" for="doc_num">Номер документа:</label>
+                        <input type="text" id="doc_num" name="doc_num" placeholder="">
+	                </div>
+
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label" for="doc_date">Дата документа:</label>
+                        <input type="date" id="doc_date" name="doc_date" placeholder="">
+	                </div>
+
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label" for="doc_registrator">Ким видано документ:</label>
+                        <input type="text" id="doc_registrator" name="doc_registrator" placeholder="">
+	                </div>
+                </div>
+                <hr>
+
+                <p><h4>Про засновників:</h4></p>
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-2 founderBox">
+                        <label class="control-label">П.І.Б</label>
+                        <input type="text" name="nameFounder" placeholder="Введіть прізвище, ім'я, по-батькові">
+
+                        <label class="control-label">Місце проживання</label>
+                        <input type="text" name="addressFounder" placeholder="Введіть місце проживання"> <br>
+                    </div>
+                    <button class="btn btn-default col-sm-offset-2 addFounderButton" type="button">
+                        <span class="glyphicon glyphicon-plus-sign"> Додати</span>
+                    </button>
+                </div>
+                <hr>
+
+                <!-- Відомості про легалізацію(реєстрацію) громадської організації -->
+                <div class="form-group">
+                    <p><h4>Про громадську організацію:</h4></p>
+	                <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label" for="org_full_name">Повне найменування громадської організації:</label>
+                        <input type="text" id="org_full_name" name="org_full_name" placeholder="">
+	                </div>
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label" for="org_full_name">Скорочене найменування громадської організації(за наявності):</label>
+                        <input type="text" id="org_short_name" name="org_short_name" placeholder="">
+	                </div>
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label" for="org_location">Мета діяльності:</label>
+                        <input type="text" id="org_goal" name="org_goal" placeholder="">
+	                </div>
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label" for="org_goal">Спрямованість громадської організації:</label>
+                        <input type="text" id="org_direction" name="org_direction" placeholder="">
+	                </div>
+                </div>
+                <hr>
+
+
+
+
+                <!-- Адреса-->
+                <div class="form-group">
+                    <p><h4>Контакти:</h4></p>
+	                <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label" for="addr_region">Область:</label>
+                        <input type="text" id="addr_region" name="addr_region" placeholder="">
+	                </div>
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label" for="addr_area">Район:</label>
+                        <input type="text" id="addr_area" name="addr_area" placeholder="">
+	                </div>
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label" for="addr_city">Місто:</label>
+                        <input type="text" id="addr_city" name="addr_city" placeholder="">
+	                </div>
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label" for="addr_adderss">Адреса:</label>
+                        <input type="text" id="addr_address" name="addr_address" placeholder="">
+	                </div>
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label" for="addr_post_index">Поштовий індекс:</label>
+                        <input type="text" id="addr_post_index" name="addr_post_index" placeholder="">
+	                </div>
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label" for="addr_phone">Телефон:</label>
+                        <input type="text" id="addr_phone" name="addr_phone" placeholder="">
+	                </div>
+                </div>
+                <hr>
+
+                <div class="form-group">
+	                <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label" for="addr_region">Місцезнаходження керівних органів:</label>
+                        <input type="text" id="gov_address" name="gov_address" placeholder="">
+	                </div>
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label class="control-label" for="addr_phone">Телефон керівних органів:</label>
+                        <input type="text" id="gov_phone" name="gov_phone" placeholder="">
+	                </div>
+                </div>
+                <hr>
+
+                <!-- Зареєструвати -->
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <button type="submit" class="btn btn-primary">Зареєструвати громадську організацію</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script>
+
+        $('.addFounderButton').click(function() {
+            var html =
+            "<label class='control-label'>П.І.Б.&nbsp;</label><input type='text' name='nameFounder' placeholder='Введіть П.І.Б.'><label class='control-label'>Місце проживання &nbsp;</label><input type='text' name='addressFounder' placeholder='Введіть місце проживання'> <br>"
+            $('.founderBox').append(html);
+        });
+
+        $('form[name="ngo_form"]').submit(function(e) {
+            e.preventDefault();
+
+            $.post('add_ngo/', $(this).serialize())
+                .done(function(response) {
+                    window.location.href = '/';
+                })
+                .fail(function(jqXHR) {
+                    var error = JSON.parse(jqXHR);
+                    console.log("FAIL")
+                    console.log(error.status + " " + error.message);
+                })
+            ;
+        });
+    </script>
+{% endblock content %}

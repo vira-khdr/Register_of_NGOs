@@ -9,8 +9,12 @@ def index(request):
 
 def page_commerse_chambers(request):
     return render_to_response('add_commerce_chambers.html')
+
 def page_party(request):
     return render_to_response('add_party.html')
+
+def page_ngo(request):
+    return render_to_response('add_ngo.html')
 
 @csrf_exempt
 def add_commerse_chambers(request):
@@ -23,5 +27,12 @@ def add_commerse_chambers(request):
 def add_party(request):
     if request.method == "POST":
         add_organization.add_party(request.POST)
+
+    return render_to_response('index.html')
+
+@csrf_exempt
+def add_ngo(request):
+    if request.method == "POST":
+        add_organization.add_ngo(request.POST)
 
     return render_to_response('index.html')

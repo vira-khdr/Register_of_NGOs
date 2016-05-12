@@ -4,24 +4,7 @@
         <div class="row">
             <form class="form-horizontal" role="form" name="commerce_chambers_form">
                 <div class="form-group">
-                    <legend>Заява про внесення до Єдиного реєстру громадських формувань відомостей про політичну партію</legend>
-                </div>
-
-                <!-- Тип угрупування -->
-                <div class="form-group">
-                    <div class="col-sm-10 col-sm-offset-2">
-                        <label class="control-label">
-                            <p align="left">Тип угрупування:</p>
-                            <label class="radio-inline">
-                                <input type="radio" name="ch_type" value="Politichna partiya" checked>
-                                <strong>Політична партія</strong>
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="ch_type" value="Structurne utvoreny political party">
-                                <strong>Структурне утворення політичної партії</strong>
-                            </label>
-                        </label>
-                    </div>
+                    <legend>Заява про внесення до Єдиного реєстру громадських формувань відомостей про політичні партії</legend>
                 </div>
 
                 <!-- Тип операції -->
@@ -78,21 +61,34 @@
                 </div>
                 <hr>
 
-                <!-- Про палату (назва, територія, цілі) -->
+                <!-- -->
                 <div class="form-group">
-                    <p><h4>Про палату:</h4></p>
-	                <div class="col-sm-10 col-sm-offset-2">
+                    <p><h4>
+                        Відомості про партію:
+                    </h4></p>
+                    <div class="col-sm-10 col-sm-offset-2">
                         <label class="control-label" for="org_full_name">Повне найменування:</label>
                         <input type="text" id="org_full_name" name="org_full_name" placeholder="">
 	                </div>
                     <div class="col-sm-10 col-sm-offset-2">
-                        <label class="control-label" for="org_location">Територія, на яку поширюється діяльність<br>торгово-промислової палати:</label>
-                        <input type="text" id="org_location" name="org_location" placeholder="">
-	                </div>
-                    <div class="col-sm-10 col-sm-offset-2">
-                        <label class="control-label" for="org_goal">Цілі діяльності:</label>
+                        <label class="control-label" for="org_goal">Основна мета діяльності:</label>
                         <input type="text" id="org_goal" name="org_goal" placeholder="">
 	                </div>
+                    <p><h4>Керівники:</h4></p>
+                    <div class="leaderBox">
+                        <div class="col-sm-10 col-sm-offset-2">
+                            <label class="control-label" for="led_pib">Прізвище, ім’я, по батькові:</label>
+                            <input type="text" id="led_pib" name="led_pib" placeholder="">
+                        </div>
+
+                        <div class="col-sm-10 col-sm-offset-2">
+                            <label class="control-label" for="led_post">Посада:</label>
+                            <input type="text" id="led_post" name="led_post" placeholder="">
+                        </div>
+                    </div>
+                    <button class="btn btn-default col-sm-offset-2 addLeaderButton" type="button">
+                        <span class="glyphicon glyphicon-plus-sign"> Додати</span>
+                    </button>
                 </div>
                 <hr>
 
@@ -160,14 +156,14 @@
 
         $('.addLeaderButton').click(function() {
             var html =
-            "<label class='control-label'>Имя&nbsp;</label><input type='text' name='nameLeader' placeholder='Введите ФИО'><label class='control-label'>Имя &nbsp;</label><input type='text' name='nameLeader' placeholder='Введите имя'><label class='control-label'>Имя &nbsp;</label><input type='text' name='nameLeader' placeholder='Введите имя'> <br>"
+            "<div class=\"col-sm-10 col-sm-offset-2\"><label class=\"control-label\">Прізвище, ім’я, по батькові:</label><input type=\"text\" name=\"led_pib\" placeholder=\"\"></div><div class=\"col-sm-10 col-sm-offset-2\"><label class=\"control-label\">Посада:</label><input type=\"text\" name=\"led_post\" placeholder=\"\"></div><br>"
             $('.leaderBox').append(html);
         });
 
         $('form[name="commerce_chambers_form"]').submit(function(e) {
             e.preventDefault();
 
-            $.post('add_commerce/', $(this).serialize())
+            $.post('add_party/', $(this).serialize())
                 .done(function(response) {
                     window.location.href = '/';
                 })

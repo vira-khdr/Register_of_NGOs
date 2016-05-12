@@ -25,6 +25,9 @@ urlpatterns = (
     url(r'^register_party/add_party/$', 'register.views.add_party'),
     url(r'^register_party/$', 'register.views.page_party'),
 
+    url(r'^register_ngo/add_ngo/$', 'register.views.add_ngo'),
+    url(r'^register_ngo/$', 'register.views.page_ngo'),
+
     url('', 'register.views.index'),
     url(r'^admin/', admin.site.urls),
 )
