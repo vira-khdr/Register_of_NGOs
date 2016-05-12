@@ -27,10 +27,6 @@ class Limit(models.Model):
     type_activities = models.CharField(max_length=200)
     date = models.DateField()
 
-class Leader(models.Model):
-    PIB = models.CharField(max_length=200)
-    post = models.CharField(max_length=200)
-
 class Founder(models.Model):
     PIB = models.CharField(max_length=200)
     adress = models.ForeignKey(Address)
@@ -54,20 +50,25 @@ class Party(models.Model):
     name_full = models.CharField(max_length=200)
     location = models.CharField(max_length=200)
     goal = models.CharField(max_length=200)
-    registrator_name = models.CharField(max_length=200)
+    registrator_name = models.CharField(max_length=200, blank=True)
     doc = models.ForeignKey(Document)
     cert = models.ForeignKey(Certificate)
     address = models.ForeignKey(Address)
-    leader = models.ForeignKey(Leader)
     limit = models.ForeignKey(Limit, blank=True, null=True)
 
- class NGO(models.Model):
- 	ngo_type = models.CharField(max_length=50)
- 	ngo_status = models.CharField(max_length=50)
- 	oper_type = models.CharField(max_length=50)
- 	legal_form = models.CharField(max_length=50)
- 	limit_id = models.ForeignKey(Limit, blank=True, null=True)
- 	cert = models.ForeignKey(Certificate)
+class Leader(models.Model):
+    PIB = models.CharField(max_length=200)
+    post = models.CharField(max_length=200)
+    party = models.ForeignKey(Party)
+
+
+class NGO(models.Model):
+    ngo_type = models.CharField(max_length=50)
+    ngo_status = models.CharField(max_length=50)
+    oper_type = models.CharField(max_length=50)
+    legal_form = models.CharField(max_length=50)
+    limit_id = models.ForeignKey(Limit, blank=True, null=True)
+    cert = models.ForeignKey(Certificate)
     doc = models.ForeignKey(Document)
     address = models.ForeignKey(Address)
     founder = models.ForeignKey(Founder)

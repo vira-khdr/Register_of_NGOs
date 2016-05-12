@@ -40,8 +40,6 @@ def add_commerce_chambers(post_data):
                                      goal=org_goal, registrator_name=registrator_name,
                                      cert=certificate, doc=document, address=address)
 
-    print Commerce_Chambers.objects.all()
-
 def add_party(post_data):
     #commerce chamber info
     ch_type = post_data.__getitem__('ch_type')
@@ -76,8 +74,8 @@ def add_party(post_data):
     lim_date = post_data.__getitem__('lim_date')
 
     #Leader info
-    lead_PIB = post_data.__getitem__('lead_PIB')
-    lead_post = post_data.__getitem__('lead_post')
+    lead_PIB = post_data.__getlist__('lead_PIB')
+    lead_post = post_data.__getlist__('lead_post')
 
     #add commerce chamber
     address = Address.objects.create(region=addr_region, area=addr_area, city=addr_city, address=addr_adderss,
@@ -86,10 +84,9 @@ def add_party(post_data):
     certificate = Certificate.objects.create(number=cert_num, date=date.today())
 
     limit = Limit.objects.create(ch_type=lim_type, type_activities=lim_activ, date=lim_date)
-    leader = Leader.objects.create(PIB=lead_PIB, post=lead_post)
 
-    Party.objects.create(ch_type=ch_type, oper_type=oper_type, name_full=org_full_name, location=org_location,
+    party = Party.objects.create(ch_type=ch_type, oper_type=oper_type, name_full=org_full_name, location=org_location,
                                      goal=org_goal, registrator_name=registrator_name,
-                                     cert=certificate, doc=document, address=address, limit=limit, leader=leader)
-
-    print Party.objects.all()
+                                     cert=certificate, doc=document, address=address, limit=limit)
+    for i in range(len(lead_PIB)):
+        leader = Leader.objects.create(PIB=lead_PIB[i], post=lead_post[i], party=party)
