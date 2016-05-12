@@ -22,6 +22,9 @@ urlpatterns = (
     url(r'^register_commerce_chamberce/add_commerce/$', 'register.views.add_commerse_chambers'),
     url(r'^register_commerce_chamberce/$', 'register.views.page_commerse_chambers'),
 
+    url(r'^register_party/add_party/$', 'register.views.add_party'),
+    url(r'^register_party/$', 'register.views.page_party'),
+
     url('', 'register.views.index'),
     url(r'^admin/', admin.site.urls),
 )

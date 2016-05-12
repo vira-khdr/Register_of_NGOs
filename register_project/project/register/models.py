@@ -22,6 +22,15 @@ class Certificate(models.Model):
     number = models.CharField(max_length=50)
     date = models.DateField()
 
+class Limit(models.Model):
+    ch_type = models.CharField(max_length=50)
+    type_activities = models.CharField(max_length=200)
+    date = models.DateField()
+
+class Leader(models.Model):
+    PIB = models.CharField(max_length=200)
+    post = models.CharField(max_length=200)
+
 class Commerce_Chambers(models.Model):
     ch_type = models.CharField(max_length=50)
     oper_type = models.CharField(max_length=50)
@@ -33,3 +42,17 @@ class Commerce_Chambers(models.Model):
     cert = models.ForeignKey(Certificate)
     doc = models.ForeignKey(Document)
     address = models.ForeignKey(Address)
+
+class Party(models.Model):
+    ch_type = models.CharField(max_length=50)
+    oper_type = models.CharField(max_length=50)
+    register_number = models.CharField(max_length=50, blank=True, null=True)
+    name_full = models.CharField(max_length=200)
+    location = models.CharField(max_length=200)
+    goal = models.CharField(max_length=200)
+    registrator_name = models.CharField(max_length=200)
+    doc = models.ForeignKey(Document)
+    cert = models.ForeignKey(Certificate)
+    address = models.ForeignKey(Address)
+    leader = models.ForeignKey(Leader)
+    limit = models.ForeignKey(Limit, blank=True, null=True)
